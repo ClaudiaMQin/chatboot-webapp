@@ -11,115 +11,113 @@
     <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
 
     <style>
-        /* Variabili di Colore per Branding Semplificato */
-        :root {
-            --primary-color: #004aad; /* Blu Istituzionale (Unipol) */
-            --accent-color: #f7a01d; /* Giallo/Arancio Accento */
-            --background-page: #f9f9f9;
-            --text-color: #2c3e50;
-        }
+    /* Variabili di Colore per Branding Semplificato */
+    :root {
+        --primary-color: #004aad; /* Blu Istituzionale (Unipol) */
+        --accent-color: #f7a01d; /* Giallo/Arancio Accento */
+        --background-page: #f9f9f9;
+        --text-color: #2c3e50;
+    }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-page);
-            color: var(--text-color);
-            min-height: 100vh;
-        }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-page);
+        color: var(--text-color);
+        min-height: 100vh;
+    }
 
-        /* Testata più dinamica e colorata */
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #002e7a 100%); 
-            color: white;
-            width: 100%;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
+    /* Testata più dinamica e colorata */
+    header {
+        background: linear-gradient(135deg, var(--primary-color) 0%, #002e7a 100%); 
+        color: white;
+        width: 100%;
+        padding: 40px 20px;
+        text-align: center;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
 
-        .header-content {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .header-content {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .header-content img {
-            width: 120px; 
-            height: auto;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); 
-        }
+    .header-content img {
+        width: 120px; 
+        height: auto;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); 
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            font-weight: 700;
-        }
+    header h1 {
+        margin: 0;
+        font-size: 3rem;
+        font-weight: 700;
+    }
 
-        header p {
-            margin-top: 10px;
-            font-size: 1.3rem;
-            font-weight: 400;
-        }
+    header p {
+        margin-top: 10px;
+        font-size: 1.3rem;
+        font-weight: 400;
+    }
+    
+    /* Contenitore centrale */
+    .main-content {
+        padding: 60px 20px;
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .main-content h2 {
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .main-content p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    /* ---------------------------------------------------------------- */
+    /* PERSONALIZZAZIONE E CORREZIONE POSIZIONAMENTO DF-MESSENGER */
+    /* ---------------------------------------------------------------- */
+    df-messenger {
+        z-index: 999;
+        /* Rimuoviamo position: fixed da qui, lo applichiamo internamente */
         
-        /* Contenitore centrale */
-        .main-content {
-            padding: 60px 20px;
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto;
-            text-align: center;
-        }
+        /* Forziamo dimensioni e posizione interna al componente */
+        --df-messenger-chat-window-width: 700px; 
+        --df-messenger-chat-window-height: 80vh; 
+        
+        /* Queste due linee di CSS standard FORZANO il contenitore del widget ad espandersi e a non occupare tutto lo schermo */
+        height: 80vh; 
+        width: 700px; 
+        
+        /* Aggiungiamo il posizionamento tramite le variabili di posizione (più affidabili) */
+        --df-messenger-bottom: 20px;
+        --df-messenger-right: 20px;
 
-        .main-content h2 {
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-
-        .main-content p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        /* ---------------------------------------------------------------- */
-        /* Personalizzazione del widget DF-MESSENGER */
-        /* ---------------------------------------------------------------- */
-        df-messenger {
-            z-index: 999;
-            position: fixed;
-            bottom: 20px;
-            right: 20px; 
-
-            /* Applicazione diretta al componente host */
-            height: 80vh; 
-            width: 450px; 
-            
-            /* Variabili interne più specifiche per forzare la finestra di chat */
-            --df-messenger-chat-window-width: 700px; 
-            --df-messenger-chat-window-height: 80vh; 
-            
-            /* Vecchie variabili di controllo (mantenute per compatibilità) */
-            --df-messenger-max-height: 80vh; 
-            --df-messenger-max-width: 700px; 
-
-            /* Variabili di Stile */
-            --df-messenger-font-family: 'Montserrat', sans-serif;
-            --df-messenger-chat-background: var(--background-page);
-            --df-messenger-message-user-background: var(--primary-color); 
-            --df-messenger-message-user-font-color: white;
-            --df-messenger-message-bot-background: white;
-            --df-messenger-message-bot-font-color: var(--text-color);
-            
-            /* Stile della testata della chat aperta */
-            --df-messenger-button-titlebar-color: var(--accent-color); 
-            --df-messenger-button-titlebar-font-color: var(--text-color); 
-        }
-    </style>
+        /* Stile */
+        --df-messenger-font-family: 'Montserrat', sans-serif;
+        --df-messenger-chat-background: var(--background-page);
+        --df-messenger-message-user-background: var(--primary-color); 
+        --df-messenger-message-user-font-color: white;
+        --df-messenger-message-bot-background: white;
+        --df-messenger-message-bot-font-color: var(--text-color);
+        
+        /* Stile della testata della chat aperta */
+        --df-messenger-button-titlebar-color: var(--accent-color); 
+        --df-messenger-button-titlebar-font-color: var(--text-color); 
+    }
+</style>
 </head>
 <body>
 
