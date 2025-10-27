@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assistenza AI - Analisi Dati Unipol </title>
+    <title>Assistenza AI - Demo Unipol</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -30,7 +30,6 @@
 
         /* Testata più dinamica e colorata */
         header {
-            /* Uso di due colori del brand per un gradiente che "colpisce" */
             background: linear-gradient(135deg, var(--primary-color) 0%, #002e7a 100%); 
             color: white;
             width: 100%;
@@ -48,10 +47,10 @@
         }
 
         .header-content img {
-            width: 120px; /* Logo più grande e visibile */
+            width: 120px; 
             height: auto;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); /* Ombra per farlo risaltare */
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); 
         }
 
         header h1 {
@@ -96,10 +95,17 @@
             bottom: 20px;
             right: 20px; 
 
-            /* RENDIAMO LA CHAT PIÙ GRANDE (Larghezza e Altezza) */
-            --df-messenger-max-height: 80%; /* Occupa l'80% dell'altezza dello schermo */
-            --df-messenger-max-width: 1900px; /* Larghezza aumentata per una chat più comoda */
-    
+            /* Applicazione diretta al componente host */
+            height: 80vh; 
+            width: 450px; 
+            
+            /* Variabili interne più specifiche per forzare la finestra di chat */
+            --df-messenger-chat-window-width: 700px; 
+            --df-messenger-chat-window-height: 80vh; 
+            
+            /* Vecchie variabili di controllo (mantenute per compatibilità) */
+            --df-messenger-max-height: 80vh; 
+            --df-messenger-max-width: 700px; 
 
             /* Variabili di Stile */
             --df-messenger-font-family: 'Montserrat', sans-serif;
@@ -110,10 +116,9 @@
             --df-messenger-message-bot-font-color: var(--text-color);
             
             /* Stile della testata della chat aperta */
-            --df-messenger-button-titlebar-color: var(--accent-color); /* Usiamo il colore ACCENTO */
+            --df-messenger-button-titlebar-color: var(--accent-color); 
             --df-messenger-button-titlebar-font-color: var(--text-color); 
         }
-
     </style>
 </head>
 <body>
@@ -121,7 +126,7 @@
     <header>
         <div class="header-content">
             <img src="images.png" alt="Logo Aziendale Unipol">
-            <h1>Assistente Conversazionale</h1>
+            <h1>Assistente Conversazionale Aziendale</h1>
             <p>
                 Scopri l'efficacia dell'AI nel rispondere a quesiti complessi in tempo reale. Il tuo supporto personalizzato è a un click di distanza.
             </p>
@@ -131,9 +136,7 @@
     <div class="main-content">
         <h2>La Prossima Generazione di Servizio Clienti</h2>
         <p>
-            Questo prototipo dimostra l'integrazione fluida del nostro Agente Conversazionale (Dialogflow) in un'applicazione web moderna.
-            Tale Agente permette di porrere delle domande di analisi dei dati presenti nelle tabelle Unipol.
-        </p>
+            Questo prototipo dimostra l'integrazione fluida del nostro Agente Conversazionale (Dialogflow) in un'applicazione web moderna.Questo Agente permette di effettuare analisi dei dati collegati a tabelle Unipol, presenti in BigQuery.
         <p>
             **Prova l'interazione:** Clicca sull'icona di chat fluttuante in basso a destra.
         </p>
@@ -144,9 +147,8 @@
         project-id="data-platform-framework"
         agent-id="66f87608-18d7-4167-a3cc-f5727ddedb84"
         language-code="en"
-        chat-icon="[Link al tuo logo/icona bot - opzionale, si consiglia un'icona tonda]"
-        >
-        <df-messenger-chat-bubble
+        chat-icon="[Link al tuo logo/icona bot - opzionale, si consiglia un'icona tonda]" 
+        max-query-length="-1"> <df-messenger-chat-bubble
             chat-title="Assistenza Smart Unipol">
         </df-messenger-chat-bubble>
     </df-messenger>
