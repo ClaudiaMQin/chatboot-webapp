@@ -13,10 +13,10 @@
     <style>
         /* Variabili di Colore per Branding Semplificato */
         :root {
-            primary-color: #004aad; /* Blu Istituzionale (Unipol) */
-            accent-color: #f7a01d; /* Giallo/Arancio Accento */
-            background-page: #f9f9f9;
-            text-color: #2c3e50;
+            --primary-color: #004aad; /* Blu Istituzionale (Unipol) */
+            --accent-color: #f7a01d; /* Giallo/Arancio Accento */
+            --background-page: #f9f9f9;
+            --text-color: #2c3e50;
         }
 
         body {
@@ -97,8 +97,8 @@
             right: 20px; 
 
             /* RENDIAMO LA CHAT PIÙ GRANDE (Larghezza e Altezza) */
-            df-messenger-max-height: 80%; /* Occupa l'80% dell'altezza dello schermo */
-            df-messenger-max-width: 900px; /* Larghezza aumentata per una chat più comoda */
+            --df-messenger-max-height: 80%; /* Occupa l'80% dell'altezza dello schermo */
+            --df-messenger-max-width: 1900px; /* Larghezza aumentata per una chat più comoda */
     
 
             /* Variabili di Stile */
@@ -145,7 +145,7 @@
         agent-id="66f87608-18d7-4167-a3cc-f5727ddedb84"
         language-code="en"
         chat-icon="[Link al tuo logo/icona bot - opzionale, si consiglia un'icona tonda]"
-        max-query-length="-1">
+        >
         <df-messenger-chat-bubble
             chat-title="Assistenza Smart Unipol">
         </df-messenger-chat-bubble>
