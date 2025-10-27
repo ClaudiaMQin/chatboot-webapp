@@ -91,21 +91,22 @@
     /* ---------------------------------------------------------------- */
     df-messenger {
         z-index: 999;
-        /* Rimuoviamo position: fixed da qui, lo applichiamo internamente */
         
-        /* Forziamo dimensioni e posizione interna al componente */
+        /* REINTRODOTTO: Assicura che l'elemento sia fisso rispetto al browser. */
+        position: fixed; 
+        
+        /* Rimuoviamo le proprietà height: 80vh; e width: 700px;
+           per evitare lo scroll orizzontale e l'allargamento quando è chiusa. */
+    
+        /* Variabili interne per la DIMENSIONE della finestra APERTA (700px di larghezza) */
         --df-messenger-chat-window-width: 700px; 
         --df-messenger-chat-window-height: 80vh; 
-        
-        /* Queste due linee di CSS standard FORZANO il contenitore del widget ad espandersi e a non occupare tutto lo schermo */
-        height: 80vh; 
-        width: 700px; 
-        
-        /* Aggiungiamo il posizionamento tramite le variabili di posizione (più affidabili) */
+    
+        /* Posizionamento fisso tramite variabili (più affidabile per il fluttuante) */
         --df-messenger-bottom: 20px;
         --df-messenger-right: 20px;
-
-        /* Stile */
+        
+        /* Stile - Mantenuto il tuo styling */
         --df-messenger-font-family: 'Montserrat', sans-serif;
         --df-messenger-chat-background: var(--background-page);
         --df-messenger-message-user-background: var(--primary-color); 
@@ -115,8 +116,8 @@
         
         /* Stile della testata della chat aperta */
         --df-messenger-button-titlebar-color: var(--accent-color); 
-        --df-messenger-button-titlebar-font-color: var(--text-color); 
-    }
+        --df-messenger-button-titlebar-font-color: var(--text-color);
+    }    
 </style>
 </head>
 <body>
