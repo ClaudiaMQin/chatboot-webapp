@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistenza AI - Demo Client</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+
+    <style>
+        /* Variabili di Colore per Branding Semplificato */
+        :root {
+            --primary-color: #004aad; /* Blu Unipol */
+            --secondary-color: #f7a01d; /* Giallo/Arancio Accento (ipotetico) */
+            --background-page: #f9f9f9;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-page);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        /* Testata più dinamica */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #002e7a 100%); /* Gradiente */
+            color: white;
+            width: 100%;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin-top: 15px;
+            font-size: 1.3rem;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Contenitore centrale migliorato */
+        .main-content {
+            padding: 60px 20px;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .main-content h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* ---------------------------------------------------------------- */
+        /* Personalizzazione del widget DF-MESSENGER */
+        /* ---------------------------------------------------------------- */
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            bottom: 20px; /* leggermente più staccato */
+            right: 20px; 
+            
+            /* Variabili di Stile */
+            --df-messenger-font-family: 'Montserrat', sans-serif;
+            --df-messenger-chat-background: var(--background-page);
+            --df-messenger-message-user-background: var(--primary-color); /* Messaggio utente BLU del brand */
+            --df-messenger-message-user-font-color: white; /* Testo bianco su sfondo blu */
+            --df-messenger-message-bot-background: white;
+            --df-messenger-message-bot-font-color: var(--text-color);
+            
+            /* Stile della testata */
+            --df-messenger-button-titlebar-color: var(--primary-color); 
+            --df-messenger-button-titlebar-font-color: white; 
+
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Assistente Conversazionale Aziendale</h1>
+        <p>
+            Scopri l'efficacia dell'AI nel rispondere a quesiti complessi in tempo reale. Il tuo supporto personalizzato è a un click di distanza.
+        </p>
+    </header>
+
+    <div class="main-content">
+        <h2>La Prossima Generazione di Servizio Clienti</h2>
+        <p>
+            Questo prototipo dimostra l'integrazione fluida del nostro Agente Conversazionale (Dialogflow) in un'applicazione web moderna. L'agente è configurato per la regione `europe-west4` e utilizza le logiche di Playbook e le fonti dati specifiche del progetto **Data Platform Framework**.
+        </p>
+        <p>
+            **Prova l'interazione:** Clicca sull'icona di chat fluttuante in basso a destra e invia una domanda relativa all'ambito di competenza dell'agente.
+        </p>
+    </div>
+
+    <df-messenger
+        location="europe-west4"
+        project-id="data-platform-framework"
+        agent-id="66f87608-18d7-4167-a3cc-f5727ddedb84"
+        language-code="en"
+        chat-icon="[Link al tuo logo/icona bot - opzionale]" 
+        max-query-length="-1">
+        <df-messenger-chat-bubble
+            chat-title="Assistenza Smart Unipol">
+        </df-messenger-chat-bubble>
+    </df-messenger>
+
+</body>
+</html>
