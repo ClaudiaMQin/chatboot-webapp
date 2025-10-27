@@ -90,34 +90,33 @@
     /* PERSONALIZZAZIONE E CORREZIONE POSIZIONAMENTO DF-MESSENGER */
     /* ---------------------------------------------------------------- */
     df-messenger {
-        z-index: 999;
+            z-index: 999;
+            
+            /* REINTRODUZIONE ESSENZIALE per far fluttuare l'icona */
+            position: fixed; 
+            bottom: 20px;
+            right: 20px;
+            
+            /* Queste linee ora sono NECESSARIE per forzare le dimensioni della finestra APERTA */
+            /* Queste righe devono esserci. Il browser applica il width/height alla finestra APERTA. */
+            width: 600px;
+            height: 80vh;
         
-        /* REINTRODOTTO: Assicura che l'elemento sia fisso rispetto al browser. */
-        position: fixed; 
-        
-        /* Rimuoviamo le proprietà height: 80vh; e width: 700px;
-           per evitare lo scroll orizzontale e l'allargamento quando è chiusa. */
-    
-        /* Variabili interne per la DIMENSIONE della finestra APERTA (700px di larghezza) */
-        --df-messenger-chat-window-width: 700px; 
-        --df-messenger-chat-window-height: 80vh; 
-    
-        /* Posizionamento fisso tramite variabili (più affidabile per il fluttuante) */
-        --df-messenger-bottom: 20px;
-        --df-messenger-right: 20px;
-        
-        /* Stile - Mantenuto il tuo styling */
-        --df-messenger-font-family: 'Montserrat', sans-serif;
-        --df-messenger-chat-background: var(--background-page);
-        --df-messenger-message-user-background: var(--primary-color); 
-        --df-messenger-message-user-font-color: white;
-        --df-messenger-message-bot-background: white;
-        --df-messenger-message-bot-font-color: var(--text-color);
-        
-        /* Stile della testata della chat aperta */
-        --df-messenger-button-titlebar-color: var(--accent-color); 
-        --df-messenger-button-titlebar-font-color: var(--text-color);
-    }    
+            /* Variabili interne per la finestra APERTA (ridondanti, ma utili per compatibilità) */
+            --df-messenger-chat-window-width: 600px; 
+            --df-messenger-chat-window-height: 80vh; 
+            
+            /* Le variabili di stile come colori e font rimangono invariate: */
+            --df-messenger-font-family: 'Montserrat', sans-serif;
+            --df-messenger-chat-background: var(--background-page);
+            --df-messenger-message-user-background: var(--primary-color); 
+            --df-messenger-message-user-font-color: white;
+            --df-messenger-message-bot-background: white;
+            --df-messenger-message-bot-font-color: var(--text-color);
+            
+            --df-messenger-button-titlebar-color: var(--accent-color); 
+            --df-messenger-button-titlebar-font-color: var(--text-color);
+    }
 </style>
 </head>
 <body>
